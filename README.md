@@ -17,7 +17,7 @@
 
 Este repositório contém o código-fonte, as configurações de robô e as arenas utilizadas pela equipe na **etapa de Simulação da OBR 2026**, disputada na plataforma [sBotics](https://sbotics.net/).
 
-O robô foi projetado para navegar de forma **totalmente autônoma** por arenas de resgate, seguindo a linha preta utilizando um **controlador proporcional (P)** com quatro sensores de cor, além de acionar braços mecânicos para simular o **resgate de vítimas** ao longo do percurso.
+O robô foi projetado para navegar de forma **totalmente autônoma** por arenas de resgate, seguindo a linha preta utilizando um **controlador proporcional (P)** com quatro sensores de cor. Na inicialização, os braços mecânicos são erguidos e travados, posicionando o robô para o início do percurso.
 
 ### ✨ Destaques técnicos
 
@@ -25,7 +25,7 @@ O robô foi projetado para navegar de forma **totalmente autônoma** por arenas 
 |---|---|
 | 🧮 Controle | Controlador proporcional (ganho `kp = 3.5`) |
 | 🔵 Sensores | 4 sensores de cor (LL, L, R, RR) com ponderação lateral |
-| ⚙️ Motores | 4 servomotores de tração + 2 braços de resgate |
+| ⚙️ Motores | 4 servomotores de tração + 2 braços (erguidos e travados na inicialização) |
 | 🗺️ Arenas | 4 arenas customizadas de diferentes dificuldades |
 | 🤖 Robôs | 2 configurações de robô (`.sBot`) |
 
@@ -96,8 +96,8 @@ O robô foi projetado para navegar de forma **totalmente autônoma** por arenas 
 O robô executa a seguinte sequência ao iniciar:
 
 ```
-1. Braços de resgate sobem (upArms)
-2. Motores são desbloqueados
+1. Motores de tração são desbloqueados
+2. Braços mecânicos são desbloqueados, erguidos e travados na posição inicial
 3. Robô avança pela pista
 4. Loop principal: leitura dos sensores → cálculo do erro → correção de trajetória
 5. Valor do erro é exibido no terminal em tempo real
